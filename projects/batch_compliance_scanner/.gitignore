@@ -1,0 +1,6 @@
+# Test files and generated reports
+test_pdfs/
+*.xlsx
+__pycache__/
+*.pyc
+*.pyo
