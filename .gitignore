@@ -3,3 +3,11 @@ __pycache__/
 *.swp
 .env
 .pylintrc
+
+# Credible Scanner output files
+*.xlsx
+*.csv
+*_signature_scan_debug.txt
+*_signature_scan.xlsx
+batch_results.xlsx
+signature_scan_results.xlsx
