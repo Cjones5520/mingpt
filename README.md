@@ -63,6 +63,45 @@ Coverage is not super amazing just yet but:
 python -m unittest discover tests
 ```
 
+## Credible PDF Signature Scanner
+
+This repository now includes a **signature scanning tool** for PDF attachments in the Credible system. The tool detects signatures on service forms (e.g., DLA-20, Treatment Plans) and standardizes the form processing workflow.
+
+### Features
+- **PDF Processing**: Converts PDF pages to images using `pdf2image`
+- **Form Type Detection**: Uses OCR (`pytesseract`) to identify form types based on keywords
+- **Signature Detection**: Uses computer vision (`OpenCV`) to detect signature boxes and lines
+- **Excel Output**: Generates structured reports using `pandas`
+- **Batch Processing**: Process multiple files at once
+- **Command Line Interface**: Easy-to-use CLI for scanning operations
+
+### Quick Start
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Test installation
+python test_installation.py
+
+# Scan a single PDF
+python credible_scanner_cli.py single document.pdf
+
+# Batch process multiple PDFs
+python credible_scanner_cli.py batch /path/to/pdfs/
+```
+
+### Python API
+```python
+from credible_scanner import credible_attachment_scanner
+
+# Scan a PDF file
+result = credible_attachment_scanner("document.pdf")
+print(f"Form Type: {result['form_type']}")
+print(f"Signatures Found: {result['signatures_found']}")
+```
+
+For detailed installation and usage instructions, see `CREDIBLE_SCANNER_INSTALL.md`.
+
 ### todos
 
 - add gpt-2 finetuning demo on arbitrary given text file
@@ -72,7 +111,7 @@ python -m unittest discover tests
 - distributed training support
 - reproduce some benchmarks in projects/, e.g. text8 or other language modeling
 - proper logging instead of print statement amateur hour haha
-- i probably should have a requirements.txt file...
+- ✓ ~~i probably should have a requirements.txt file...~~ (added requirements.txt)
 - it should be possible to load in many other model weights other than just gpt2-\*
 
 ### References
